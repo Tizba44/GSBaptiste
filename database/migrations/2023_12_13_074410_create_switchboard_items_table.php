@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('switchboard items', function (Blueprint $table) {
+        Schema::create('switchboard_items', function (Blueprint $table) {
             $table->integer('SwitchboardID')->nullable();
             $table->smallInteger('ItemNumber')->nullable();
             $table->string('ItemText')->nullable();
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('switchboard items');
+        Schema::dropIfExists('switchboard_items');
     }
 };
