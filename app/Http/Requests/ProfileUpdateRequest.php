@@ -22,8 +22,6 @@ class ProfileUpdateRequest extends FormRequest
             'VIS_ADRESSE' => ['required', 'string', 'max:255'],
             'VIS_CP' => ['required', 'string', 'max:255'],
             'VIS_VILLE' => ['required', 'string', 'max:255'],
-
-
         ];
     }
 }
