@@ -36,23 +36,18 @@ const submit = () => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="flex">
-
                         <!-- Logo -->
                         <div class="flex-shrink-0 flex items-center">
                             <Link :href="route('dashboard')">
                             <ApplicationLogo class="block h-9 w-auto" />
                             </Link>
                         </div>
-
-
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                             <NavLink>
                                 <Link :href="route('home')">
-                                Acceuil</Link>
+                                Accueil</Link>
                             </NavLink>
                         </div>
-
-
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                             <NavLink>
                                 <Link :href="route('login')"
@@ -60,21 +55,7 @@ const submit = () => {
                                 Se connecter</Link>
                             </NavLink>
                         </div>
-
-
-
-
-
-
-
-
-
-
-
                     </div>
-
-
-
                     <!-- Hamburger -->
                     <div class="-me-2 flex items-center sm:hidden">
                         <button @click="showingNavigationDropdown = !showingNavigationDropdown"
@@ -95,7 +76,6 @@ const submit = () => {
                     </div>
                 </div>
             </div>
-
             <!-- Responsive Navigation Menu -->
             <div :class="{ block: showingNavigationDropdown, hidden: !showingNavigationDropdown }" class="sm:hidden">
 

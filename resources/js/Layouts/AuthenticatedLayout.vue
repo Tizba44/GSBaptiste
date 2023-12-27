@@ -29,15 +29,7 @@ const showingNavigationDropdown = ref(false);
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink>
                                     <Link :href="route('home')">
-                                    Acceuil</Link>
-                                </NavLink>
-                            </div>
-
-
-                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink>
-                                    <Link :href="route('profile.edit')">
-                                    Profile</Link>
+                                    Accueil</Link>
                                 </NavLink>
                             </div>
 
