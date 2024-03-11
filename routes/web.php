@@ -4,8 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\PraticienController;
 
+use App\Http\Controllers\PraticienController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,7 +36,24 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-    Route::get('praticien', [PraticienController::class, 'praticien'])->name('praticien');
+    
+    Route::get('/praticiens', [PraticienController::class, 'index'])->name('praticiens.index');
+    Route::get('/praticiens/search', [PraticienController::class, 'search'])->name('praticiens.search');
+    
+    
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 require __DIR__ . '/auth.php';
