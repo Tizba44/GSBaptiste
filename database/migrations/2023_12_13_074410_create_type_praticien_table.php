@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('type_praticien', function (Blueprint $table) {
-            $table->string('TYP_CODE', 3)->nullable();
+            $table->string('TYP_CODE', 3)->primary(); // Définir comme clé primaire
             $table->string('TYP_LIBELLE', 25)->nullable();
             $table->string('TYP_LIEU', 35)->nullable();
         });

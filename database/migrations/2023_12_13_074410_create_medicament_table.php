@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('MED_EFFETS')->nullable();
             $table->string('MED_CONTREINDIC')->nullable();
             $table->float('MED_PRIXECHANTILLON', 10, 0)->nullable();
+            // id auto-increment primary key
+            $table->id();
         });
     }
 

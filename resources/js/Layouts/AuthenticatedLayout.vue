@@ -6,7 +6,14 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/vue3';
 
 
+
 const showingNavigationDropdown = ref(false);
+
+
+
+
+
+
 </script>
 
 <template>
@@ -17,37 +24,44 @@ const showingNavigationDropdown = ref(false);
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
                         <div class="flex">
-
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <Link :href="route('home')">
                                 <ApplicationLogo class="block h-9 w-auto" />
                                 </Link>
                             </div>
-
-
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink>
                                     <Link :href="route('home')">
                                     Accueil</Link>
                                 </NavLink>
                             </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink>
+                                    <Link :href="route('praticiens.index')">
+                                    Praticien</Link>  
+                                </NavLink>
+                            </div>
 
-
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink>
+                                    <Link :href="route('compteRendu.index')">
+                                    Compte Rendu</Link>  
+                                </NavLink>
+                            </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink>
+                                    <Link :href="route('profile.edit')">
+                                    Profile</Link>
+                                </NavLink>
+                            </div>
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink>
                                     <Link :href="route('logout')" method="post" as="button">
                                     Se déconnecter</Link>
-
                                 </NavLink>
                             </div>
-
-
-
                         </div>
-
-
-
                         <!-- Hamburger -->
                         <div class="-me-2 flex items-center sm:hidden">
                             <button @click="showingNavigationDropdown = !showingNavigationDropdown"
@@ -83,15 +97,27 @@ const showingNavigationDropdown = ref(false);
 
                         <!-- home -->
                         <div class="mt-3 space-y-1">
-                            <ResponsiveNavLink :href="route('home')"> Home </ResponsiveNavLink>
+                            <ResponsiveNavLink :href="route('home')"> Accueil </ResponsiveNavLink>
                         </div>
+
+                        <div class="mt-3 space-y-1">
+                            <ResponsiveNavLink :href="route('praticiens.index')"> Praticien </ResponsiveNavLink>
+                        </div>
+
+                        <div class="mt-3 space-y-1">
+                            <ResponsiveNavLink :href="route('compteRendu.index')"> Compte Rendu </ResponsiveNavLink>    
+                        </div>
+
+
 
                         <div class="mt-3 space-y-1">
                             <ResponsiveNavLink :href="route('profile.edit')"> Profile </ResponsiveNavLink>
                             <ResponsiveNavLink :href="route('logout')" method="post" as="button">
-                                Log Out
+                                Se déconnecter
                             </ResponsiveNavLink>
                         </div>
+
+
 
 
                     </div>

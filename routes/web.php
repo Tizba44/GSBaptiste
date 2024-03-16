@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\PraticienController;
+use App\Http\Controllers\CompteRenduController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,25 +37,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-
-    
     Route::get('/praticiens', [PraticienController::class, 'index'])->name('praticiens.index');
     Route::get('/praticiens/search', [PraticienController::class, 'search'])->name('praticiens.search');
-    
-    
+
+
+    Route::get('/Compte_Rendu', [CompteRenduController::class, 'index'])->name('compteRendu.index');
+    Route::post('/Compte_Rendu', [CompteRenduController::class, 'store'])->name('compteRendu.store');
+    Route::get('/compteRendu/download/{id}', [CompteRenduController::class, 'download']);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 require __DIR__ . '/auth.php';

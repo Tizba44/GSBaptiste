@@ -12,12 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
         $this->call(ActiviteComplTableSeeder::class);
         $this->call(ComposantTableSeeder::class);
         $this->call(ConstituerTableSeeder::class);
@@ -43,5 +38,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TypePraticienTableSeeder::class);
         // $this->call(VisiteurTableSeeder::class);
         $this->call(SwitchboardItemsTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
     }
 }

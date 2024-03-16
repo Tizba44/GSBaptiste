@@ -22,4 +22,9 @@ class Praticien extends Model
 
     protected $table = 'praticien';
 
+    // Ajoutez cette méthode pour définir la relation
+    public function typePraticien()
+    {
+        return $this->belongsTo(TypePraticien::class, 'TYP_CODE', 'TYP_CODE');
+    }
 }
