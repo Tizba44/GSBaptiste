@@ -1,4 +1,7 @@
 <template>
+
+
+
   <Head title="Compte Rendu" />
   <AuthenticatedLayout>
     <template #header>
@@ -13,7 +16,7 @@
                  <!-- praticien -->
                 <div class="mt-4">
                   <InputLabel for="praticien" value="Praticien" />
-                  <select v-model="form.praticien" id="praticien">
+                  <select v-model="form.praticien" id="praticien" class="rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
                     <option v-for="praticien in praticiens" :value="praticien.PRA_NUM" :key="praticien.PRA_NUM">
                       {{ praticien.PRA_NOM }} {{ praticien.PRA_PRENOM }}
                     </option>
@@ -22,7 +25,7 @@
                                <!-- drop down pour choisir médicament -->
                                <div class="mt-4">
                   <InputLabel for="medicament" value="Médicament" />
-                  <select v-model="form.medicament" id="medicament">
+                  <select v-model="form.medicament" id="medicament" class="rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
                     <option v-for="medicament in medicaments" :value="medicament.MED_DEPOTLEGAL" :key="medicament.MED_DEPOTLEGAL">
                       {{ medicament.MED_NOMCOMMERCIAL }}
                     </option>
@@ -87,12 +90,7 @@
                       <div class="mt-4">
                         <InputLabel for="praticien" value="Praticien" />
                         <p>{{ selectedRapport.praticien ? selectedRapport.praticien.PRA_NOM : 'N/A' }} {{ selectedRapport.praticien ? selectedRapport.praticien.PRA_PRENOM : 'N/A' }}</p>
-                        
                       </div>
-                      <!-- Ajoutez ce bouton dans votre balise <div v-if="selectedRapport"> -->
-                      <!-- <div class="mt-4">
-                        <a :href="`/compteRendu/download/${selectedRapport.id}`" class="btn btn-primary">Télécharger le PDF</a>
-                      </div> -->
                       <div class="mt-4">
                         <a :href="`/compteRendu/download/${selectedRapport.id}`">
                           <PrimaryButton class="ms-4" :href="`/compteRendu/download/${selectedRapport.id}`" >
@@ -119,7 +117,7 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import TextInput from '@/Components/TextInput.vue';
-use Dompdf\Dompdf;
+
 
 
 
@@ -136,10 +134,10 @@ let selectedRapport = computed(() => {
 
 let form = useForm({
   praticien: '',
-  date: '',
-  bilan: '',
   medicament: '',
   motif: '',
+  date: '',
+  bilan: '',
 
 });
 
@@ -150,32 +148,23 @@ onMounted(() => {
 });
 
 
+
+
+
 function submit() {
   form.post(route('compteRendu.store'), {
     preserveScroll: true,
     onSuccess: () => {
       form.reset();
+        //  reload data to see new the list of report
+      form.get(route('compteRendu.index'));
     },
   });
+
+
 }
 
 
-
-public function download($id)
-{
-    $compteRendu = CompteRendu::find($id);
-
-    // Générer le PDF avec dompdf...
-    $dompdf = new Dompdf();
-    $dompdf->loadHtml(view('compteRendu.pdf', ['compteRendu' => $compteRendu]));
-    $dompdf->render();
-
-    // Retourner le PDF en tant que téléchargement
-    return response($dompdf->output(), 200, [
-        'Content-Type' => 'application/pdf',
-        'Content-Disposition' => 'attachment; filename="compteRendu.pdf"',
-    ]);
-}
 
 
 </script>

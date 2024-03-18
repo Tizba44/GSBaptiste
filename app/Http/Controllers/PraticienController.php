@@ -18,6 +18,13 @@ class PraticienController extends Controller
 
     public function search(Request $request)
     {
+
+        $request->validate([
+            'nom' => 'nullable|string',
+            'ville' => 'nullable|string',
+            'type' => 'nullable|string',
+        ]);
+
         $nom = $request->input('nom');
         $ville = $request->input('ville');
         $type = $request->input('type');

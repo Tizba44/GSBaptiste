@@ -19,7 +19,7 @@ class RapportVisite extends Model
         'RAP_MEDICAMENT',
         'users_id'
     ];
-  // Ajoutez cette méthode pour définir la relation avec medicament et praticien
+    // Ajoutez cette méthode pour définir la relation avec medicament et praticien
     public function medicament()
     {
         return $this->belongsTo(Medicament::class, 'RAP_MEDICAMENT', 'MED_DEPOTLEGAL');
@@ -33,5 +33,4 @@ class RapportVisite extends Model
 
 
     protected $table = 'rapport_visite';
-
 }
