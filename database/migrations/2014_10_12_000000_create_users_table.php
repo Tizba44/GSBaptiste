@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('VIS_NOM', 25);
             $table->string('VIS_PRENOM', 50);
             $table->string('VIS_ADRESSE', 50)->nullable();
-            $table->string('VIS_CP', 5)->nullable();
+            $table->integer('VIS_CP')->nullable();
             $table->string('VIS_VILLE', 30)->nullable();
             $table->dateTime('VIS_DATEEMBAUCHE')->nullable();
             $table->string('SEC_CODE', 1)->nullable();

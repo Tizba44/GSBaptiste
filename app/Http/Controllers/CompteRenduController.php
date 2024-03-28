@@ -14,8 +14,12 @@ class CompteRenduController extends Controller
     public function index()
     {
         $praticiens = Praticien::with('typePraticien')->get();
+
         $medicaments = Medicament::all();
+
         $rapports = RapportVisite::with('praticien', 'medicament')->where('users_id', auth()->user()->id)->get();
+
+
         return Inertia::render('CompteRendu', [
             'praticiens' => $praticiens,
             'medicaments' => $medicaments,
@@ -23,15 +27,20 @@ class CompteRenduController extends Controller
         ]);
     }
 
-    // Ajoutez cette méthode pour enregistrer un rapport de visite
+
     public function store(Request $request)
     {
+
         $request->validate([
-            'praticien' => 'required',
-            'date' => 'required',
-            'bilan' => 'required',
-            'medicament' => 'required',
+            'praticien' => 'required|integer',
+            'medicament' => 'required|string',
+            'date' => 'required|date_format:Y-m-d',
+            'bilan' => 'required|string',
+            'motif' => 'required|string|max:255',
         ]);
+
+
+
         RapportVisite::create([
             'PRA_NUM' => $request->praticien,
             'RAP_DATE' => $request->date,
@@ -42,8 +51,12 @@ class CompteRenduController extends Controller
             'users_id' => auth()->user()->id,
 
         ]);
+
         return redirect()->route('compteRendu.index');
     }
+
+
+
     public function download($id)
     {
         $rapport = RapportVisite::with('praticien', 'medicament')->where('id', $id)->first();

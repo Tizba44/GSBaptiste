@@ -39,8 +39,9 @@ class RegisteredUserController extends Controller
             'VIS_NOM' => 'required|string|max:255',
             'VIS_PRENOM' => 'required|string|max:255',
             'VIS_ADRESSE' => 'required|string|max:255',
-            'VIS_CP' => 'required|string|max:255',
+            'VIS_CP' => 'required|integer|digits:5',
             'VIS_VILLE' => 'required|string|max:255',
+
         ]);
 
         $user = User::create([

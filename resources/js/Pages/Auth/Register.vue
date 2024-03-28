@@ -19,17 +19,21 @@ const form = useForm({
     VIS_VILLE: '',
 });
 
+
 const submit = () => {
     form.post(route('register'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
     });
 };
 
+
 </script>
 
+
 <template>
+
     <Head title="Créer un compte" />
-    
+
     <div class="min-h-screen bg-gray-100">
         <GuestLayout>
             <template #header>
@@ -50,8 +54,8 @@ const submit = () => {
                         <div class="mt-4">
                             <InputLabel for="password" value="Mot de passe" />
 
-                            <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required
-                                autocomplete="new-password" />
+                            <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password"
+                                required autocomplete="new-password" />
 
                             <InputError class="mt-2" :message="form.errors.password" />
                         </div>
@@ -66,24 +70,24 @@ const submit = () => {
                         <div class="mt-4">
                             <InputLabel for="VIS_NOM" value="Nom" />
 
-                            <TextInput id="VIS_NOM" type="text" class="mt-1 block w-full" v-model="form.VIS_NOM" required
-                                autocomplete="VIS_NOM" />
+                            <TextInput id="VIS_NOM" type="text" class="mt-1 block w-full" v-model="form.VIS_NOM"
+                                required autocomplete="VIS_NOM" />
 
                             <InputError class="mt-2" :message="form.errors.VIS_NOM" />
                         </div>
                         <div class="mt-4">
                             <InputLabel for="VIS_PRENOM" value="Prenom" />
 
-                            <TextInput id="VIS_PRENOM" type="text" class="mt-1 block w-full" v-model="form.VIS_PRENOM" required
-                                autocomplete="VIS_PRENOM" />
+                            <TextInput id="VIS_PRENOM" type="text" class="mt-1 block w-full" v-model="form.VIS_PRENOM"
+                                required autocomplete="VIS_PRENOM" />
 
                             <InputError class="mt-2" :message="form.errors.VIS_PRENOM" />
                         </div>
                         <div class="mt-4">
                             <InputLabel for="VIS_ADRESSE" value="Adresse" />
 
-                            <TextInput id="VIS_ADRESSE" type="text" class="mt-1 block w-full" v-model="form.VIS_ADRESSE" required
-                                autocomplete="VIS_ADRESSE" />
+                            <TextInput id="VIS_ADRESSE" type="text" class="mt-1 block w-full" v-model="form.VIS_ADRESSE"
+                                required autocomplete="VIS_ADRESSE" />
 
                             <InputError class="mt-2" :message="form.errors.VIS_ADRESSE" />
                         </div>
@@ -98,29 +102,27 @@ const submit = () => {
                         <div class="mt-4">
                             <InputLabel for="VIS_VILLE" value="Ville" />
 
-                            <TextInput id="VIS_VILLE" type="text" class="mt-1 block w-full" v-model="form.VIS_VILLE" required
-                                autocomplete="VIS_VILLE" />
+                            <TextInput id="VIS_VILLE" type="text" class="mt-1 block w-full" v-model="form.VIS_VILLE"
+                                required autocomplete="VIS_VILLE" />
 
                             <InputError class="mt-2" :message="form.errors.VIS_VILLE" />
                         </div>
                         <div class="flex items-center justify-end mt-4">
                             <Link :href="route('login')"
                                 class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Vous avez déjà un compte ?
+                            Vous avez déjà un compte ?
                             </Link>
 
-                            <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                            <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }"
+                                :disabled="form.processing">
                                 S'inscrire
                             </PrimaryButton>
                         </div>
                     </form>
                 </div>
             </div>
-           
-           
+
+
         </GuestLayout>
     </div>
 </template>
-
-
-
