@@ -148,7 +148,10 @@ let form = useForm({
 onMounted(() => {
   form.praticien = praticiens.value[0].PRA_NUM;
   form.medicament = medicaments.value[0].MED_DEPOTLEGAL;
-  form.rapport = rapports.value[0].id;
+
+  if (rapports.value.length > 0) {
+    form.rapport = rapports.value[0].id;
+  }
 
   console.log(form.date);
 });
