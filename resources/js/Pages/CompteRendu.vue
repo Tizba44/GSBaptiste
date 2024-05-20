@@ -96,9 +96,12 @@
               <div class="mt-4">
                 <InputLabel for="praticien" value="Praticien" />
                 <p>{{ selectedRapport.praticien ? selectedRapport.praticien.PRA_NOM : 'N/A' }} {{
-            selectedRapport.praticien
-              ? selectedRapport.praticien.PRA_PRENOM : 'N/A' }}</p>
+                  selectedRapport.praticien
+                    ? selectedRapport.praticien.PRA_PRENOM : 'N/A' }}</p>
               </div>
+
+
+
               <div class="mt-4">
                 <a :href="`/compteRendu/download/${selectedRapport.id}`">
                   <PrimaryButton class="ms-4" :href="`/compteRendu/download/${selectedRapport.id}`">
@@ -106,6 +109,10 @@
                   </PrimaryButton>
                 </a>
               </div>
+
+
+
+
             </div>
           </div>
         </div>

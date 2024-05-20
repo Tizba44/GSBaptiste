@@ -8,6 +8,9 @@ use Inertia\Inertia;
 use App\Http\Controllers\PraticienController;
 use App\Http\Controllers\CompteRenduController;
 
+
+// use App\Http\Controllers\AddAccount;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +34,7 @@ Route::get('/', function () {
 
 
 Route::middleware('auth')->group(function () {
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -42,6 +46,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/Compte_Rendu', [CompteRenduController::class, 'index'])->name('compteRendu.index');
     Route::post('/Compte_Rendu', [CompteRenduController::class, 'store'])->name('compteRendu.store');
     Route::get('/compteRendu/download/{id}', [CompteRenduController::class, 'download']);
+
+
+    // Route::get('/AddAccount', [AddAccount::class, 'index'])->name('AddAccount.index');
+
+    // Route::post('/AddAccount/importcsv', [AddAccount::class, 'importcsv'])->name('AddAccount.importcsv');
 });
 
 require __DIR__ . '/auth.php';

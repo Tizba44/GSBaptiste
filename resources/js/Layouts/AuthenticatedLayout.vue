@@ -39,14 +39,14 @@ const showingNavigationDropdown = ref(false);
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink>
                                     <Link :href="route('praticiens.index')">
-                                    Praticien</Link>  
+                                    Praticien</Link>
                                 </NavLink>
                             </div>
 
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink>
                                     <Link :href="route('compteRendu.index')">
-                                    Compte Rendu</Link>  
+                                    Compte Rendu</Link>
                                 </NavLink>
                             </div>
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -55,12 +55,25 @@ const showingNavigationDropdown = ref(false);
                                     Profile</Link>
                                 </NavLink>
                             </div>
+                            <!-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink>
+                                    <Link :href="route('AddAccount.index')">
+                                    AddAccount</Link>
+                                </NavLink>
+                            </div> -->
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink>
                                     <Link :href="route('logout')" method="post" as="button">
                                     Se déconnecter</Link>
                                 </NavLink>
                             </div>
+                            <!-- 
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink>
+                                    <Link :href="route('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')">
+                                    XXXXXXXXXXXXXXXXXXXXXXXXXXX</Link>
+                                </NavLink>
+                            </div> -->
                         </div>
                         <!-- Hamburger -->
                         <div class="-me-2 flex items-center sm:hidden">
@@ -84,7 +97,8 @@ const showingNavigationDropdown = ref(false);
                 </div>
 
                 <!-- Responsive Navigation Menu -->
-                <div :class="{ block: showingNavigationDropdown, hidden: !showingNavigationDropdown }" class="sm:hidden">
+                <div :class="{ block: showingNavigationDropdown, hidden: !showingNavigationDropdown }"
+                    class="sm:hidden">
 
                     <!-- Responsive Settings Options -->
                     <div class="pt-4 pb-1 border-t border-gray-200">
@@ -105,7 +119,7 @@ const showingNavigationDropdown = ref(false);
                         </div>
 
                         <div class="mt-3 space-y-1">
-                            <ResponsiveNavLink :href="route('compteRendu.index')"> Compte Rendu </ResponsiveNavLink>    
+                            <ResponsiveNavLink :href="route('compteRendu.index')"> Compte Rendu </ResponsiveNavLink>
                         </div>
 
 
