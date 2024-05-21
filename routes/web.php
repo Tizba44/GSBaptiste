@@ -9,7 +9,7 @@ use App\Http\Controllers\PraticienController;
 use App\Http\Controllers\CompteRenduController;
 
 
-// use App\Http\Controllers\AddAccount;
+use App\Http\Controllers\AddAccount;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,9 +48,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/compteRendu/download/{id}', [CompteRenduController::class, 'download']);
 
 
-    // Route::get('/AddAccount', [AddAccount::class, 'index'])->name('AddAccount.index');
+    Route::get('/AddAccount', [AddAccount::class, 'index'])->name('AddAccount.index');
 
-    // Route::post('/AddAccount/importcsv', [AddAccount::class, 'importcsv'])->name('AddAccount.importcsv');
+    Route::post('/AddAccount/importcsv', [AddAccount::class, 'importcsv'])->name('AddAccount.importcsv');
 });
 
 require __DIR__ . '/auth.php';

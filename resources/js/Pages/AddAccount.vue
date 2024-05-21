@@ -22,8 +22,6 @@
                     <InputError class="mt-2" :message="form.errors.VIS_ADRESSE" />
                     <InputError class="mt-2" :message="form.errors.VIS_CP" />
                     <InputError class="mt-2" :message="form.errors.VIS_VILLE" />
-
-
                 </div>
             </div>
         </div>
@@ -33,9 +31,13 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import InputError from '@/Components/InputError.vue';
-import { Head, useForm } from '@inertiajs/vue3';
+import { usePage, useForm, Head } from '@inertiajs/vue3';
+import { computed, onMounted, ref } from 'vue';
 
-const form = useForm({
+
+const { errors } = usePage().props;
+const form = ref({
+    errors: errors,
     csvFile: '',
     email: '',
     password: '',
@@ -45,6 +47,10 @@ const form = useForm({
     VIS_ADRESSE: '',
     VIS_CP: '',
     VIS_VILLE: '',
+});
+
+onMounted(() => {
+    console.log(form.value.errors); // Log errors to console
 });
 
 

@@ -122,18 +122,12 @@ const showingNavigationDropdown = ref(false);
                             <ResponsiveNavLink :href="route('compteRendu.index')"> Compte Rendu </ResponsiveNavLink>
                         </div>
 
-
-
                         <div class="mt-3 space-y-1">
                             <ResponsiveNavLink :href="route('profile.edit')"> Profile </ResponsiveNavLink>
                             <ResponsiveNavLink :href="route('logout')" method="post" as="button">
                                 Se déconnecter
                             </ResponsiveNavLink>
                         </div>
-
-
-
-
                     </div>
                 </div>
             </nav>

@@ -1,1 +1,2 @@
-test2@example.com,Password4441!,Nom,Prenom,Adresse,45222,machecoul
+email,password,VIS_NOM,VIS_PRENOM,VIS_ADRESSE,VIS_CP,VIS_VILLE
+test@example.com,PaPssword4441!?,Nom,Prenom,Adresse,45222,machecoul
